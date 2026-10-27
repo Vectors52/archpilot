@@ -2,53 +2,91 @@
 
 An interactive terminal-based diagnostic tool for Arch Linux.
 
+ArchPilot helps users identify common system issues and review possible
+solutions without automatically modifying their system.
+
 ## Features
+
 - System diagnostics
-- Disk usage checks
+- Root filesystem usage checks
 - Failed systemd unit detection
-- Network and DNS checks
+- Network connectivity and DNS checks
 - Package update detection without installing updates
-- Local knowledge base and problem fingerprints
+- Local knowledge base and deterministic problem fingerprints
 - Diagnostic report export
+- Interactive terminal interface
 
 ## Requirements
+
 - Arch Linux
 - Python 3.10 or newer
+- Internet access for network checks and package update information
 
 ## Installation
 
-    git clone https://github.com/YOUR_USERNAME/archpilot.git
-    cd archpilot
-    python -m venv .venv
-    source .venv/bin/activate
-    python -m pip install -r requirements.txt
+Clone the repository:
 
-## Run
+```bash
+git clone https://github.com/Vectors52/archpilot.git
+cd archpilot
+```
 
-    python app.py
+Create a virtual environment and install the application dependencies:
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+```
+
+## Run ArchPilot
+
+Run directly:
+
+```bash
+.venv/bin/python app.py
+```
+
+Alternatively, use the launcher:
+
+```bash
+chmod +x run.sh install.sh
+./install.sh
+archpilot
+```
+
+Ensure `~/.local/bin` is in your `PATH` to run `archpilot` from any terminal.
+
+## Development setup
+
+Install the development dependencies:
+
+```bash
+.venv/bin/python -m pip install -r requirements-dev.txt
+```
 
 ## Tests
 
-    python test_severity.py
-    python test_update_check.py
-    python test_fingerprint.py
-    python test_knowledge.py
+Run the complete automated test suite:
+
+```bash
+.venv/bin/python -m pytest -v
+```
+
+GitHub Actions runs these tests on pushes and pull requests.
+
+## Contributing
+
+Bug reports, feature suggestions, and pull requests are welcome.
+
+- Read [CONTRIBUTING.md](CONTRIBUTING.md).
+- Use the GitHub issue templates to report bugs or suggest features.
+- Use the pull request template when submitting changes.
 
 ## Safety
-ArchPilot performs diagnostics only. It does not automatically repair the system or install updates.
+
+ArchPilot is a diagnostic tool. It does not automatically repair the system
+or install package updates. Review any suggested commands before running them.
 
 ## License
-MIT License. See LICENSE.
 
-## Install the `archpilot` command
-
-After cloning the repository and installing the Python dependencies, run:
-
-    chmod +x run.sh install.sh
-    ./install.sh
-
-Ensure `~/.local/bin` is in your `PATH`. Then launch ArchPilot from any terminal:
-
-    archpilot
-
-The launcher uses the project's `.venv` Python interpreter when available.
+ArchPilot is distributed under the MIT License. See [LICENSE](LICENSE).

@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a problem with ArchPilot
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting, check whether this issue has already been reported.
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: Explain what happened.
+      placeholder: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: List the steps needed to reproduce the problem.
+      placeholder: |
+        1. Run ArchPilot
+        2. Select a diagnostic option
+        3. Observe the result
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.14.7"
+  - type: input
+    id: system
+    attributes:
+      label: Operating system
+      placeholder: "Arch Linux"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error output
+      description: Remove passwords, tokens, and other private information before posting.
