@@ -1,0 +1,65 @@
+[
+  {
+    "category": "disk",
+    "key": "root-usage-high",
+    "title": "High root filesystem usage",
+    "severity": "WARNING",
+    "description": "The root filesystem is at least 90% full. This may prevent updates or applications from writing files.",
+    "verify_command": "df -h /",
+    "solution": [
+      "Inspect disk usage with df -h /.",
+      "Identify large directories with du before deleting anything.",
+      "Check package cache usage before considering cache cleanup."
+    ],
+    "risk": "Do not delete system files or personal files without checking them first.",
+    "source": "https://wiki.archlinux.org/title/File_systems"
+  },
+  {
+    "category": "systemd",
+    "key": "failed-unit",
+    "title": "A systemd unit has failed",
+    "severity": "WARNING",
+    "description": "One or more systemd units are reported as failed. The reason depends on the specific unit.",
+    "verify_command": "systemctl --failed",
+    "solution": [
+      "List failed units with systemctl --failed.",
+      "Inspect the affected unit with systemctl status UNIT.",
+      "Read relevant logs with journalctl -u UNIT.",
+      "Determine the cause before attempting a repair."
+    ],
+    "risk": "Do not restart or disable a system service until you understand what it does.",
+    "source": "https://wiki.archlinux.org/title/Systemd"
+  },
+  {
+    "category": "network",
+    "key": "dns-failure",
+    "title": "DNS name resolution failed",
+    "severity": "WARNING",
+    "description": "The system could not resolve archlinux.org even though a public IP connection succeeded.",
+    "verify_command": "getent hosts archlinux.org",
+    "solution": [
+      "Check whether other domain names also fail to resolve.",
+      "Inspect the current DNS configuration without changing it.",
+      "Check the network manager or resolver logs for errors.",
+      "Do not replace DNS settings until the cause is understood."
+    ],
+    "risk": "Changing DNS settings may interrupt connectivity or conflict with network management tools.",
+    "source": "https://wiki.archlinux.org/title/Domain_name_resolution"
+  },
+  {
+    "category": "network",
+    "key": "internet-connectivity-failure",
+    "title": "Public IP connectivity test failed",
+    "severity": "WARNING",
+    "description": "A TCP connection to 1.1.1.1 on port 443 failed or timed out. This alone does not prove that the entire internet connection is down.",
+    "verify_command": "ip route",
+    "solution": [
+      "Check whether the network interface is connected.",
+      "Inspect the default route with ip route.",
+      "Check the router or active network connection.",
+      "Repeat the test because firewalls or network policies may block the target."
+    ],
+    "risk": "Do not restart networking or change routes until the cause is understood.",
+    "source": "https://wiki.archlinux.org/title/Network_configuration"
+  }
+]
