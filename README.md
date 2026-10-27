@@ -39,3 +39,16 @@ ArchPilot performs diagnostics only. It does not automatically repair the system
 
 ## License
 MIT License. See LICENSE.
+
+## Install the `archpilot` command
+
+After cloning the repository and installing the Python dependencies, run:
+
+    chmod +x run.sh install.sh
+    ./install.sh
+
+Ensure `~/.local/bin` is in your `PATH`. Then launch ArchPilot from any terminal:
+
+    archpilot
+
+The launcher uses the project's `.venv` Python interpreter when available.
