@@ -7,7 +7,7 @@ Thank you for your interest in contributing to ArchPilot!
 1. Fork the repository on GitHub.
 2. Clone your fork:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/archpilot.git
+   git clone https://github.com/am2q/archpilot.git
    cd archpilot
    ```
 3. Create a virtual environment:
