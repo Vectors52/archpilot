@@ -27,7 +27,7 @@ solutions without automatically modifying their system.
 Clone the repository:
 
 ```bash
-git clone https://github.com/Vectors52/archpilot.git
+git clone https://github.com/am2q/archpilot.git
 cd archpilot
 ```
 
